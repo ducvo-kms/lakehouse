@@ -1,0 +1,31 @@
+version: 1
+
+shares:
+  - name: "delta"
+    schemas:
+      - name: "default"
+        tables:
+          - name: "in_network"
+            location: "s3a://datalake/lakehouse/in_network"
+            id: "00000000-0000-0000-0000-000000000001"
+# Set the host name that the server will use
+host: "localhost"
+# Set the port that the server will listen on. Note: using ports below 1024
+# may require a privileged user in some operating systems.
+port: 80
+# Set the url prefix for the REST APIs
+endpoint: "/delta-sharing"
+# Set the timeout of S3 presigned url in seconds
+preSignedUrlTimeoutSeconds: 3600
+# How many tables to cache in the server
+deltaTableCacheSize: 13
+# Whether we can accept working with a stale version of the table. This is useful when sharing
+# static tables that will never be changed.
+stalenessAcceptable: false
+# Whether to evaluate user provided `predicateHints`
+evaluatePredicateHints: false
+# Whether to evaluate user provided `jsonPredicateHints`
+evaluateJsonPredicateHints: false
+# The server supports a basic authorization with pre-configed bearer token
+authorization:
+  bearerToken: "e5ffa444-0266-403d-8f0f-d9417d48ed2a"
